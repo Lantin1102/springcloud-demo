@@ -1,0 +1,29 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: user
+  datasource:
+    url: jdbc:mysql://192.168.200.150:3306/cloud_user
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: com.itheima.user.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com.itheima: debug
+
+eureka:
+  client:
+    service-url: # 注册中心的地址
+      defaultZone: http://127.0.0.1:10086/eureka, http://127.0.0.1:10087/eureka
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.ip-address}:${spring.application.name}:${server.port}
+    # 服务续约
+    lease-renewal-interval-in-seconds: 30  #续约更新时间
+    lease-expiration-duration-in-seconds: 90  #过期判断时间
