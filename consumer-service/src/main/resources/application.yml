@@ -17,3 +17,7 @@ eureka:
 ribbon:
   eager-load:
     clients: user  #设置服务的名称
+hystrix:
+  command:
+    default:
+      execution.isolation.thread.timeoutInMilliseconds: 2000  #设置超时时间

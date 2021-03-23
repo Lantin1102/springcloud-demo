@@ -24,8 +24,13 @@ public class UserController {
 
     @GetMapping({"{id}"})
     public User searchUserByUsername(@PathVariable("id") String username) {
+        //try {
+        //    Thread.sleep(2000);
+        //} catch (InterruptedException e) {
+        //    e.printStackTrace();
+        //}
         User user = userService.findByUsername(username);
-        user.setEmail("port："+port);
+        user.setEmail("port：" + port);
         return user;
     }
 }
